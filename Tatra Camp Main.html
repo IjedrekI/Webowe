@@ -1,0 +1,828 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!--for cards and facebook icon-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><!-- Theme Made By www.w3schools.com - No Copyright -->
+
+
+    <title>Tatra Camp</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    <style>
+
+
+        header {
+            position: relative;
+            background-color: black;
+            height: 75vh;
+            min-height: 25rem;
+            width: 100%;
+            overflow: hidden;
+        }
+
+            header video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: 0;
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            header .container {
+                position: relative;
+                z-index: 2;
+            }
+
+            header .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: black;
+                opacity: 0.5;
+                z-index: 1;
+            }
+
+
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #818181;
+        }
+
+        h2 {
+            font-size: 30px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .jumbotron {
+            background-color: #00ffff;
+            color: #fff;
+            padding: 100px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+        .container-fluid {
+            padding: 60px 50px;
+        }
+
+        .bg-grey {
+            background-color: #f6f6f6;
+        }
+
+        .logo-small {
+            color: #f4511e;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: #f4511e;
+            font-size: 200px;
+        }
+
+
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid #f4511e;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+            .panel:hover {
+                box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+            }
+
+        .panel-footer .btn:hover {
+            border: 1px solid #f4511e;
+            background-color: #fff !important;
+            color: #f4511e;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #f4511e !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+            .panel-footer h3 {
+                font-size: 32px;
+            }
+
+            .panel-footer h4 {
+                color: #aaa;
+                font-size: 14px;
+            }
+
+            .panel-footer .btn {
+                margin: 15px 0;
+                background-color: #f4511e;
+                color: #fff;
+            }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #f4511e;
+            z-index: 9999;
+            border: 0;
+            font-size: 13px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 3px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+            font-weight: bold;
+        }
+
+            .navbar li a, .navbar .navbar-brand {
+                color: #fff !important;
+            }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: #fff !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f4511e;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        img {
+            width: 70%;
+            height: auto;
+            border-radius: 10px;
+            /*Prevent background color leak outs */
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .fa:hover, .glyphicon:hover, .row .col-sm-4 img:hover {
+                opacity: 0.9;
+                -webkit-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+
+        #support {
+            margin: 20px 0;
+            letter-spacing: 3px;
+        }
+
+        #oferta, #kursy, #contact {
+            background-color: beige;
+        }
+
+
+
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+            }
+
+            .btn-lg {
+                width: 100%;
+                margin-bottom: 35px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                font-size: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body data-offset="60" data-spy="scroll" data-target=".navbar" id="myPage">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="#myPage">Tatra Camp</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#oferta">OFERTA</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#team">TEAM</a>
+                    </li>
+                    <!-- donokczync-->
+
+
+                    <li>
+                        <a href="#kursy">KURSY</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#instruktorzy">INSTRUKTORZY</a>
+                    </li>
+
+
+                    <li>
+                        <a href="#contact">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header>
+        <div class="overlay">
+        </div>
+        <video autoplay="autoplay" loop="loop"><source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"></video>
+    </header>
+    <!-- Container (About Section) -->
+
+
+    <div class="container-fluid" id="oferta">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>TATRA CAMP</h2>
+                <br>
+
+
+                <h4>Tatra Camp, naszym celem jest dzielenie się pasją, wiedzą oraz doświadczeniem związanym z takimi dyscyplinami jak: narciarstwo wysokogórskie (skitouring, skialpinizm ) oraz narciarstwo alpejskie, biegi górskie -ultra.</h4>
+                <br>
+
+
+                <p>Tatra Camp zimą organizuje szkolenia, kursy, obozy oraz treningi skierowane do osób, które chcą zdobyć wiedzę, umiejętności związane z szeroko rozumianym skitouringiem. Nasza oferta obejmuje szkolenia-kursy zimowe z zakresu: <strong>Skitouringu</strong> - aktywnej turystyki zimowej z wykorzystaniem nart skitourowych, w łatwym terenie górskim. Oferta skierowana jest zarówno dla początkujących osób rozpoczynających przygodę skitouringiem oraz osób chcących pogłębić wiedzę a tym samym usprawnić poruszanie się na nartach skitourowych. Do osób, które szukają większych doznań, poszukują adrealiny, chcą zdobywać szczyty i zjezdzać w trudnym terenie przygotowaliśmy ofertę kursu narciarstwa wysokogórskiego. <strong>Narciarstwo Wysokogórskie</strong> - najprościej zdefiniować jako poruszanie się na nartach w wysokogórskim terenie otwartym całych Tatr Wysokich, Zachodnich i Bielskich, Alp. Teren otwarty, rozumiany jest jako teren poza przygotowanymi trasami narciarskimi. Oferta kierowana jest do osób posiadających doświadczenie w jeździe na nartach.</p>
+                <br>
+
+
+                <h4><strong>Skialpinizm</strong> - czyli najtrudniejsza odmiana, która łączy w sobie zjazdy w terenie eksponowanym a także zjazdy połączone z wejściami wspinaczkowymi lub zjazdy wymagające użycia sprzętu wspinaczkowego i asekuracyjnego zarówno do podejścia jak i często w trakcie zjazdu narciarskiego. Jest to najbardziej zaawansowane szkolenie w naszej ofercie.</h4>
+                <br>
+
+
+                <p>Wychodząc naprzeciw osobom pragnącym wystartować w zawodach w narciarstwie wysokogórskim Tatra Camp przygotował ofertę Race. <strong>Sportowe Narciarstwo Wysokogórskie "Race",</strong> oferującą pełną opiekę trenerską w przygotowaniach do konkretnego startu lub całego sezonu zimowego. Ofertę zamyka nauka i doskonalenie jazdy na nartach.</p>
+                <br>
+
+
+                <p>Tatra Camp posiada również ofertę całoroczną treningu <strong>personalnego</strong> oraz <strong>treningu biegowego</strong> umożliwiającego kompleksowe przygotowanie do biegów górskich i ultra.</p>
+
+
+                <p>Zapoznaj się z naszą ofertą, Tatra Camp został stworzony właśnie dla Ciebie .</p>
+
+
+                <h4>Z nami poznasz piękno Tatr i otaczającej przyrody, wzbogacisz się o wiedzę niezbędną do samodzielnego, bezpiecznego poruszania w górach czy to na nartach skitourowych w zimę i biegowo w lecie. Jest to pierwsza tak szeroka oferta na Polskim rynku.</h4>
+            </div>
+            <!--PZA Badge-->
+
+
+            <div class="col-sm-4">
+                <img alt="PZA" src="PZABadge.webp">
+            </div>
+        </div>
+    </div>
+    <!--Container (TEAM Section)-->
+
+
+    <div class="container-fluid bg-grey" id="team">
+        <div class="row">
+            <div class="col-sm-4">
+                <img alt="Tatra Camp" src="TatraCampBadge.webp">
+            </div>
+
+
+            <div class="col-sm-8">
+                <h2>TATRA CAMP TEAM</h2>
+                <br>
+
+
+                <h4><strong>Team Tatra Camp,</strong> stanowią czołowi zawodnicy narciarstwa wysokogórkiego w Polsce, medaliści Mistrzostw Polski, trenerzy narciarstwa alpejskiego i klasycznego, ratownicy górscy i najważniejsze instruktorzy narciarstwa wysokogórskiego Polskiego Związku Alpinizmu. Nasze doświadczenie zdobyte w trakcie setek wyjść skitourowych, startów w imprezach sportowych dają gwarancję jakości oferowanych szkoleń.</h4>
+                <br>
+
+
+                <p>Odkryj z nami góry, ich piękno i wspaniałe możliwości jakie dają narty skitourowe.</p>
+            </div>
+        </div>
+    </div>
+    <!--EDYTOWAĆ .container .btn btn-block btn-lg    -->
+
+
+    <div class="container">
+        <a class="btn btn-block btn-lg" data-toggle="collapse" href="#demo">OFERTA SZKOLENIOWA</a>
+
+        <div class="collapse" id="demo">
+            DZIELIMY SIĘ PASJĄ, DOŚWIADCZENIEM I MIŁOŚCIĄ DO GÓR. OFERUJEMY SZKOLENIA SKITOUROWE, NARCIARSTWA WYSOKOGÓRKIEGO, SKIALPINIZMU, SZKOLENIA SPORTOWE Z NARCIARSTWA WYSOKOGÓRSKIEGO, SZKOLENIA NARCIARSTWA ALPEJSKIEGO
+        </div>
+    </div>
+    <!-- Container (KURSY Section) -->
+
+
+    <div class="container-fluid text-center" id="kursy">
+        <h2>KURSY</h2>
+
+
+        <h4>Nasza oferta</h4>
+
+
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <button class="btn btn-link" data-target="#warsztatySkiturowe" data-toggle="modal" type="button"><span class="glyphicon glyphicon-ok logo-small"></span></button> <!-- Modal -->
+
+
+                <div aria-hidden="true" aria-labelledby="warsztatySkiturowe" class="modal fade" id="warsztatySkiturowe" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">WARSZTATY SKITOUROWE DLA POCZĄTKUJĄCYCH</h2>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                Warsztaty skitourowe przeznaczone są dla osób rozpoczynających przygodę z narciarstwem skitourowym oraz mniej doświadczonych narciarzy, którzy nie posiadają wystarczająco dużo czasu, aby wziąć udział w pełnowymiarowym kursie trwającym kilka dni. Warsztaty prowadzone są przez instruktorów narciarstwa wysokogórskiego Polskiego Związku Alpinizmu, medalistów Mistrzostw Polski i czołowych Polskich zawodników z wieloletnim stażem. Zajęcia odbywają się w łatwym terenie górskim , uczestnik warsztatów zdobywa podstawowe umiejętności z zakresu narciarstwa tourowego oraz narciarstwa wysokogórskiego, umożliwiające samodzielne poruszane się w łatwym terenie górskim.<br>
+                                Czas trwania warsztatów to około 6-8 godzin. Zajęcia rozpoczynają się około 7-8 rano i trwają do około godziny 14-15. Miejsce szkolenia Tatry, Gorce w zależności od warunków śnieżno-pogodowych. Warsztaty odbywają się zazwyczaj w weekend (sobota, niedziela), co nie wyklucza przeprowadzenia warsztatów w dowolny dzień tygodnia, po wcześniejszym uzgodnieniu. Osoby biorące udział w warsztatach, powinny posiadać ogólną sprawność fizyczną oraz jeździć na nartach w stopniu zadowalającym. *jeśli nie potrafisz jeździć na nartach , a chcesz spróbować i poznać piękno narciarstwa tourowego skontaktuj się z nami KONTAKT PROGRAM WARSZTATU SKITOUROWYCH:<br>
+                                CZAS TRWANIA: 6-8h.<br>
+                                MIEJSCE : TATRY, GORCE MAKSYMALNA ILOŚC OSÓB / INSTRUKTOR: 6/1<br>
+                                <br>
+                                ZAJĘCIA PRAKTYCZNE<br>
+                                Wyjście szkoleniowe w łatwym terenie , dostosowanym do możliwości uczestników warsztatów. W trakcie trwania warsztatów skitourowych, uczestnik zdobywa wiedzę z zakresu:
+
+                                <ul>
+                                    <li>sprzętu narciarstwa skitourowego</li>
+
+
+                                    <li>planowania trasy wycieczki</li>
+
+
+                                    <li>techniki poruszania się na nartach skitourowych (podchodzenie, zjazdy, zakosy, przepinki zjazd/podchodzenie )</li>
+
+
+                                    <li>zagrożenia w górach</li>
+
+
+                                    <li>pierwsza pomoc w górach</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-info" data-dismiss="modal" type="button">Zamknij</button> <button class="btn btn-info" data-dismiss="modal" type="button">Zapisz się!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>WARSZTATY SKITUROWE</h4>
+
+
+                <p>Warsztaty skitourowe przeznaczone są dla osób rozpoczynających przygodę z narciarstwem skitourowym oraz mniej doświadczonych narciarzy, którzy nie posiadają wystarczająco dużo czasu, aby wziąć udział w pełnowymiarowym kursie trwającym kilka dni. Warsztaty prowadzone są przez instruktorów narciarstwa wysokogórskiego Polskiego Związku Alpinizmu, medalistów Mistrzostw Polski i czołowych Polskich zawodników z wieloletnim stażem. Zajęcia odbywają się w łatwym terenie górskim , uczestnik warsztatów zdobywa podstawowe umiejętności z zakresu narciarstwa tourowego oraz narciarstwa wysokogórskiego, umożliwiające samodzielne poruszane się w łatwym terenie górskim.</p>
+            </div>
+
+
+            <div class="col-sm-4">
+                <!-- h4> WARSZTATY SKITUROWE </h4> -->
+                <button class="btn btn-link" data-target="#szkolenieDlaPoczatkujacych" data-toggle="modal" type="button"><span class="glyphicon glyphicon-ok logo-small"></span></button> <!-- Modal -->
+
+
+                <div aria-hidden="true" aria-labelledby="szkolenieDlaPoczatkujacych" class="modal fade" id="szkolenieDlaPoczatkujacych" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">WARSZTATY SKITUROWE</h2>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                Oferta szkoleniowa skierowana jest dla osób początkujących, rozpoczynających przygodę ze skitouringiem, przygotowuje do samodzielnych wycieczek na nartach tourowych w łatwym terenie górskim. Szkolenie obejmuje część teoretyczną w sali wykładowej oraz część praktyczną czyli wyjścia szkoleniowe na nartach skitourowych w terenie górskim. Praktyczne zajęcia odbywają się w łatwym terenie górskim, trwają średnio 3-7 godzin dziennie. Od uczestników szkolenia wymagany jest ogólny poziom sprawności, którego odzwierciedleniem w okresie letnim jest bezproblemowe zrobienia lekkiej wędrówki przez 3 godziny. Nie jest wymagane wcześniejsze doświadczenie skitourowe. Uczestnicy kursu powinni jeździć na nartach w stopniu zadowalającym. Szkolenie dla początkujących dostosowywane jest indywidulanie do potrzeb i możliwości kursantów.<br>
+                                <strong>PROGRAM ZAJĘĆ TEORETYCZNYCH I PRAKTYCZNYCH</strong><br>
+                                Czas trwania szkolenia – 2/3 dni Szkolenie organizujemy od grudnia do maja dostosowując termin do Państwa możliwości. Kursy weekendowe rozpoczynają się w piątek popołudniem (2-4h) wykładami. W sobotę oraz niedzielę rano odbywają się zajęcia praktyczne, popołudniem natomiast część teoretyczna. Łącznie w trakcie 3- dniowego szkolenia jest to ok. 18-22 h zajęć praktycznych i teoretycznych. * Istnieje możliwość organizacji kursu w dowolnym terminie dla min. 3 osób po wcześniejszym ustaleniu Miejsce szkolenia – Tatry (dokładne miejsce uzależnione od warunków śniegowych i poziomu uczestników) Maksymalna ilość osób/instruktora – 4-6/1 (zajęcia w terenie).
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Zamknij</button> <button class="btn btn-info" data-dismiss="modal" type="button">Zapisz się!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>SZKOLENIE SKITOUROWE DLA POCZĄTKUJĄCYCH</h4>
+
+
+                <p>Oferta szkoleniowa skierowana jest dla osób początkujących, rozpoczynających przygodę ze skitouringiem, przygotowuje do samodzielnych wycieczek na nartach tourowych w łatwym terenie górskim.Szkolenie obejmuje część teoretyczną w sali wykładowej oraz część praktyczną czyli wyjścia szkoleniowe na nartach skitourowych w terenie górskim. Praktyczne zajęcia odbywają się w łatwym terenie górskim, trwają średnio 3-7 godzin dziennie. Od uczestników szkolenia wymagany jest ogólny poziom sprawności, którego odzwierciedleniem w okresie letnim jest bezproblemowe zrobienia lekkiej wędrówki przez 3 godziny. Nie jest wymagane wcześniejsze doświadczenie skitourowe. Uczestnicy kursu powinni jeździć na nartach w stopniu zadowalającym. Szkolenie dla początkujących dostosowywane jest indywidulanie do potrzeb i możliwości kursantów.</p>
+            </div>
+
+
+            <div class="col-sm-4">
+                <button class="btn btn-link" data-target="#szkolenieNarciarstwoWysokogorskie" data-toggle="modal" type="button"><span class="glyphicon glyphicon-ok logo-small"></span></button> <!-- Modal -->
+
+
+                <div aria-hidden="true" aria-labelledby="szkolenieNarciarstwoWysokogorskie" class="modal fade" id="szkolenieNarciarstwoWysokogorskie" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">SZKOLENIE NARCIARSTWO WYSOKOGÓRSKIE</h2>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                Oferta szkoleniowa skierowana do dobrze jeżdżących narciarzy, którzy poszukują kompleksowej wiedzy umożliwiającej poruszanie się w terenie wysokogórskim przy użyciu nart skitourowych. Szkolenie obejmuje m.in. poruszanie się w eksponowanym terenie górskim z wykorzystaniem elementów turystyki górskiej, alpinizmu i autoratownictwa. Szkolenie obejmuje część teoretyczną, która odbywa się w sali wykładowej oraz część praktyczną - wyjścia szkoleniowe na nartach skitourowych. Praktyczne zajęcia odbywają się w terenie górskim, trwają od 4-8 godzin dziennie a przewyższenie może dochodzić do 2000 m, w zależności od możliwości uczestników, warunków śnieżnych oraz realizowanej tematyki zajęć.<br>
+                                Uczestnik kursu musi posiadać wcześniejsze doświadczenie w jeździe na nartach w terenie otwartym (poza przygotowanymi trasami narciarskimi) oraz doświadczenie w wędrówkach tatrzańskich. Przygotowanie fizyczne uczestników powinno być, co najmniej dobre, co oznacza bezproblemową wędrówkę o charakterze tatrzańskim trwającą od 3 do 8 godzin. Miejsce szkolenia dostosowywane jest do aktualnych fizycznych możliwości uczestników, oraz warunków śnieżno-pogodowych.
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Zamknij</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>SZKOLENIENARCIARSTWO WYSOKOGÓRSKIE</h4>
+
+
+                <p>Oferta szkoleniowa skierowana do dobrze jeżdżących narciarzy, którzy poszukują kompleksowej wiedzy umożliwiającej poruszanie się w terenie wysokogórskim przy użyciu nart skitourowych. Szkolenie obejmuje m.in. poruszanie się w eksponowanym terenie górskim z wykorzystaniem elementów turystyki górskiej, alpinizmu i autoratownictwa. Szkolenie obejmuje część teoretyczną, która odbywa się w sali wykładowej oraz część praktyczną - wyjścia szkoleniowe na nartach skitourowych. Praktyczne zajęcia odbywają się w terenie górskim, trwają od 4-8 godzin dziennie a przewyższenie może dochodzić do 2000 m, w zależności od możliwości uczestników, warunków śnieżnych oraz realizowanej tematyki zajęć.</p>
+            </div>
+        </div>
+        <br>
+        <br>
+
+
+        <div class="row slideanim">
+            <div class="col-sm-4">
+                <button class="btn btn-link" data-target="#race" data-toggle="modal" type="button"><span class="glyphicon glyphicon-ok logo-small"></span></button> <!-- Modal -->
+
+
+                <div aria-hidden="true" aria-labelledby="race" class="modal fade" id="race" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">RACE</h2>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                <strong>SZKOLENIE SPORTOWE NARCIARSTWO WYSOKOGÓRSKIE OFERTA RACE</strong><br>
+                                SZKOLENIE SPORTOWE NARCIARSTWO WYSOKOGÓRSKIE OFERTA RACE
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Zamknij</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>RACE</h4>
+
+
+                <p>Szkolenie przygotowuje do extremalnych przejść i zjazdów na nartach tourowych w trudnym wysokogórskim terenie. Szkolenie obejmuje m.in. poruszanie się w eksponowanym terenie z elementami turystyki górskiej, wspinaczki zimowej, alpinizmu i autoratownictwa. Uczestnicy kursu oprócz zajęć na sali wykładowej, biorą udział w wyjściach szkoleniowych na nartach skitourowych w bardzo trudnym terenie wysokogórskim. Wyjścia te połączone są z elementami wspinaczki zimowej. Czas trwania takich wyjść szkoleniowych to 5-12 godzin dziennie. Przewyższenie wynosić może ponad 2000 m. Zjazdy odbywają się w bardzo trudnym , eksponowanym terenie wysokogórskim. Jest wymagane wcześniejsze doświadczenie w jeździe na nartach w terenie oraz doświadczenie w wędrówkach tatrzańskich. Szkolenie wymaga od uczestnika wysokiego poziomu sprawności fizycznej. Uczestnik powinien bez problemu pokonywać w warunkach letnich, wycieczki 5-8 h w warunkach tatrzańskich. Uczestnicy muszą jeździć na nartach bardzo dobrze.</p>
+            </div>
+
+
+            <div class="col-sm-4">
+                <button class="btn btn-link" data-target="#exampleModalLong" data-toggle="modal" type="button"><span class="glyphicon glyphicon-ok logo-small"></span></button> <!-- Modal -->
+
+
+                <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade" id="exampleModalLong" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">Modal title</h2>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                Szkolenie przygotowuje do extremalnych przejść i zjazdów na nartach tourowych w trudnym wysokogórskim terenie. Szkolenie obejmuje m.in. poruszanie się w eksponowanym terenie z elementami turystyki górskiej, wspinaczki zimowej, alpinizmu i autoratownictwa. Uczestnicy kursu oprócz zajęć na sali wykładowej, biorą udział w wyjściach szkoleniowych na nartach skitourowych w bardzo trudnym terenie wysokogórskim. Wyjścia te połączone są z elementami wspinaczki zimowej. Czas trwania takich wyjść szkoleniowych to 5-12 godzin dziennie. Przewyższenie wynosić może ponad 2000 m. Zjazdy odbywają się w bardzo trudnym , eksponowanym terenie wysokogórskim. Jest wymagane wcześniejsze doświadczenie w jeździe na nartach w terenie oraz doświadczenie w wędrówkach tatrzańskich. Szkolenie wymaga od uczestnika wysokiego poziomu sprawności fizycznej. Uczestnik powinien bez problemu pokonywać w warunkach letnich, wycieczki 5-8 h w warunkach tatrzańskich. Uczestnicy muszą jeździć na nartach bardzo dobrze.<br>
+                                <strong>MIEJSCE SZKOLENIA: TATRY</strong><br>
+                                Maksymalna ilość osób / instruktora: 2/1
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Zamknij</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>NARCIARSTWO ALPEJSKIE</h4>
+
+
+                <p>Oferta skierowana jest dla osób, które chcą nauczyć się jazdy na nartach lub udoskonalić swoje umiejętności zarówno na stoku jak i w terenie. Jako czołowy zawodnik narciarstwa wysokogórskiego, medalista Mistrzostw Polski, instruktor narciarstwa zjazdowego, trener II klasy z narciarstwa zjazdowego przekaże Ci wiedzę w prosty i szybki sposób, bez względu na wiek. Zajęcia odbywają się najczęściej na stokach w pobliżu Zakopanego , dokładne miejsce i termin podawany jest drogą mailową lub telefoniczną.</p>
+            </div>
+
+
+            <div class="col-sm-4">
+                <button class="btn btn-link" data-target="#exampleModalLong" data-toggle="modal" type="button"><span class="glyphicon glyphicon-ok logo-small"></span></button> <!-- Modal -->
+
+
+                <div aria-hidden="true" aria-labelledby="exampleModalLongTitle" class="modal fade" id="exampleModalLong" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+                            </div>
+
+
+                            <div class="modal-body">
+                                ...
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">Zamknij</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4>SKIALPINIZM DLA ZAAWANSOWANYCH</h4>
+
+
+                <p>
+                    Skialpinizm to najbardziej zaawansowane szkolenie w naszej ofercie.<br>
+                    Szkolenie przygotowuje do extremalnych przejść i zjazdów na nartach tourowych w trudnym wysokogórskim terenie. Szkolenie obejmuje m.in. poruszanie się w eksponowanym terenie z elementami turystyki górskiej, wspinaczki zimowej, alpinizmu i autoratownictwa. Uczestnicy kursu oprócz zajęć na sali wykładowej, biorą udział w wyjściach szkoleniowych na nartach skitourowych w bardzo trudnym terenie wysokogórskim. Wyjścia te połączone są z elementami wspinaczki zimowej. Czas trwania takich wyjść szkoleniowych to 5-12 godzin dziennie. Przewyższenie wynosić może ponad 2000 m. Zjazdy odbywają się w bardzo trudnym , eksponowanym terenie wysokogórskim. Jest wymagane wcześniejsze doświadczenie w jeździe na nartach w terenie oraz doświadczenie w wędrówkach tatrzańskich. Szkolenie wymaga od uczestnika wysokiego poziomu sprawności fizycznej. Uczestnik powinien bez problemu pokonywać w warunkach letnich, wycieczki 5-8 h w warunkach tatrzańskich. Uczestnicy muszą jeździć na nartach bardzo dobrze.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Container (INSTRUKTORZY Section) -->
+
+
+    <div class="container-fluid" id="instruktorzy">
+        <div class="text-center">
+            <h2>INSTRUKTORZY</h2>
+
+
+            <h4>Team Tatra Camp, stanowią czołowi zawodnicy narciarstwa wysokogórkiego w Polsce, medaliści Mistrzostw Polski, trenerzy narciarstwa alpejskiego i klasycznego, ratownicy górscy i najważniejsze instruktorzy narciarstwa wysokogórskiego Polskiego Związku Alpinizmu. Nasze doświadczenie zdobyte w trakcie setek wyjść skitourowych, startów w imprezach sportowych dają gwarancję jakości oferowanych szkoleń. Odkryj z nami góry, ich piękno i wspaniałe możliwości jakie dają narty skitourowe.</h4>
+        </div>
+
+
+        <div class="row slideanim">
+            <div class="col-sm-6 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <img alt="Tatra Camp" src="MateuszKulig.webp">
+                    </div>
+
+
+                    <div class="panel-body">
+                        <p>Medalista Mistrzostw Polski w narciarstwie wysokogórskim, instruktor narciarstwa wysokogórskiego Polskiego Związku Alpinizmu, trener II klasy narciarstwa alpejskiego, trener II klasy narciarstwa klasycznego. Członek Klubu Wysokogórskiego w Zakopanem. Absolwent Akademi Wychowania Fizycznego w Krakowie. Ze sportem związany od najmłodszych lat, w lecie aktywny zawodnik biegów górskich i ultra. Twórca pierwszego w Polsce obszernego opracowania zawierającego charakterystykę sportowego narciarstwa wysokogórskiego, ze szczególnym uwzględnieniem specyfiki treningowej. Opracował pierwszy całoroczny program szkoleniowy w narciarstwie wysokogórkim wraz z rejestrem grup środków treningowych. Pracuje jako trener i konsultant z narciarzami alpejskimi, biegowymi oraz biegaczami górskimi.</p>
+                    </div>
+
+
+                    <div class="panel-footer">
+                        <h3>Mateusz Kulig</h3>
+                        <a class="fa fa-facebook" href="#"></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-xs-12">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <img alt="Tatra Camp" src="PiotrStolarczyk.webp">
+                    </div>
+
+
+                    <div class="panel-body">
+                        <p>Instruktor narciarstwa wysokogórskiego Polskiego Związku Alpinizmu, instruktor narciarstwa zjazdowego , ratownik górski w Grupie Podhalańskiej GOPR, członek Klubu Wysokogórskiego w Zakopanem. Wielokrotny zwycięzca Międzynarodowych Zawodów w Ratownictwie Górskim. Doświadczony skialpinista, uczestnik wielu zawodów w skialpinizmie w Polsce, Słowacji, Czechach. Zdobywca m.in 3 miejsca w Pucharze Tatr Wysokich w narciarstwie wysokogórskim. Ze sportem związany jest na co dzień, reprezentuje barwy Klubu Wysokogórskiego w Zakopanem w narciarstwie wysokogórskim jest również sędzią Polskiego Związku Alpinizmu w tej dyscyplinie. Góry są jego pasją wspina się latem oraz zimą. Prowadzi zajęcia w szkole narciarskiej Eskimo, gdzie uczy tajników narciarstwa najmłodszych adeptów tego sportu.</p>
+                    </div>
+
+
+                    <div class="panel-footer">
+                        <h3>Piotr Stolarczyk</h3>
+                        <a class="fa fa-facebook" href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container (KONTAKT Section) -->
+
+
+    <div class="container-fluid bg-grey" id="contact">
+        <h2 class="text-center">KONTAKT</h2>
+
+
+        <div class="row">
+            <div class="col-sm-5">
+                <p>Mateusz Kulig Tatra Camp</p>
+
+
+                <p><span class="glyphicon glyphicon-map-marker"></span> Zakopane</p>
+
+
+                <p><span class="glyphicon glyphicon-phone"></span> 530694178</p>
+
+
+                <p><span class="glyphicon glyphicon-envelope"></span>a.jwitas@gmail.com</p>
+            </div>
+
+
+            <div class="col-sm-7 slideanim">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Imie" required="" type="text">
+                    </div>
+
+
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Email" required="" type="email">
+                    </div>
+                </div>
+
+                <textarea class="form-control" id="comments" name="comments" placeholder="Komentarz" rows="5"></textarea><br>
+
+
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <button class="btn btn-default pull-right" type="submit">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container (Support Section)  -->
+
+
+    <div class="container-fluid bg-grey" id="support">
+        <h2 class="text-center">PARTNERZY</h2>
+
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img alt="Tatra Camp" src="PolarSportBadge.webp">
+            </div>
+
+
+            <div class="col-sm-4">
+                <img alt="Tatra Camp" src="MammutBadge.webp">
+            </div>
+
+
+            <div class="col-sm-4">
+                <img alt="Tatra Camp" src="WspinanieNetBadge.webp">
+            </div>
+        </div>
+    </div>
+    <!-- Container      (Support Section)  -->
+
+
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+        <p>Made By Andrzej Witas on W3schools tamplate <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
+        <a class="fa fa-facebook" href="https://www.facebook.com/andrzej.witas.3" target="_blank" title="Jędrek"></a>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
+</body>
+</html>
